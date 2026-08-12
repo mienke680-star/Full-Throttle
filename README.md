@@ -1,55 +1,43 @@
-# Full Throttle Upholstery & Overlanding Gear — Website
+# Full Throttle Overlanding Gear and Fitment — Website
 
-A 6-page static website (Home, Custom Catalogue, Services, Our Work, About, Contact) built for Full Throttle Upholstery & Overlanding Gear, a South African custom automotive, overlanding and material-work specialist. Plain HTML/CSS/JS — no build step, no framework, no backend.
+A 6-page static website for Full Throttle, a custom manufacturing workshop in Industria, Middelburg, Mpumalanga — vehicle upholstery, overlanding gear, canvas work, protective covers, furniture upholstery and custom manufacturing. Plain HTML/CSS/JS — no build step, no framework, no backend.
 
-## ⚠️ Placeholder photography — action required before launch
+This is a full rebuild: entirely new visual system (dark industrial palette with red/green/yellow glow accents, mono + display type pairing, bracket-style buttons, stitch-line dividers), new page architecture, new business information, and a completely repopulated 27-product catalogue.
 
-This build was generated from a written brief. **The official logo has now been supplied and is wired in** (see "Logo" below) — but no real project photographs were attached to this session, so the site still ships with clearly-marked stock-photo stand-ins:
+## ⚠️ Placeholder photography
 
-- **Photography** — the hero image, catalogue thumbnails, gallery, before/after and about-page images all use hotlinked Unsplash stock photos of generic 4x4/upholstery subjects (not Full Throttle's actual work). These are placeholders only and should be replaced with real completed-project photos — see "Swapping in real photos" below.
-- **Intro animation vehicle** — the cinematic drive-by intro on the homepage uses a simple original SVG silhouette of a generic bakkie (not any specific real vehicle or brand), since no reference photography/video was supplied.
+No real project photographs were attached to this session, so the site still ships with clearly-marked stock-photo stand-ins for the hero, product cards, gallery, before/after and workshop imagery. These should be replaced with real Full Throttle photography before launch.
 
-Everything else — layout, copy, WhatsApp flows, animations, filters, forms — is fully built and functional.
+- **Home hero**: `index.html` → `.stage-media img`
+- **Product images**: `js/main.js` → the `PRODUCTS` array (`img` field per item)
+- **Gallery images**: `js/main.js` → the `GALLERY` array (`src` field per item)
+- **Before/After**: `work.html` → `.ba-wrap img` / `.ba-after img`
+- **Workshop imagery**: `about.html` → the split image and material-grid tiles
+- **Material showcase / Built By Full Throttle rail**: `index.html` → respective `<img>` tags
 
 ### Logo
 
-The official logo (as supplied) lives at `assets/img/logo.jpg`, used unmodified — same file, no recolouring/cropping/redrawing — in:
+The official logo (as supplied) lives at `assets/img/logo.jpg`, used unmodified in the nav, mobile menu, footer, homepage intro animation and browser-tab favicon on every page. Do not recolour, crop or redraw it — replace the file itself if a new version is supplied, keeping the same filename/paths.
 
-- The sticky nav on every page (`.nav-logo-img`)
-- The mobile menu panel (`.mobile-panel-logo`)
-- The footer brand block (`.footer-logo-img`)
-- The homepage cinematic intro animation (`.intro-logo-img`)
-- The browser-tab favicon (`<link rel="icon">` in every page's `<head>`)
-
-To swap in a different file later (e.g. a transparent PNG/SVG version), replace `assets/img/logo.jpg` and update the six `src="assets/img/logo.jpg"` references (plus the six favicon `href` attributes) accordingly.
-
-### Swapping in real project photos
-
-All image sources are centralised for easy replacement:
-
-- **Home hero**: `index.html` → `.hero-media img`
-- **Catalogue images**: `js/main.js` → the `CATALOGUE` array (`img` field per item)
-- **Gallery images**: `js/main.js` → the `GALLERY` array (`src` field per item)
-- **Before/After**: `work.html` → `.ba-wrap img` and `.ba-after img`
-- **About page**: `about.html` → the two `<img>` tags
-
-Replace each Unsplash URL with a path to a real photo (e.g. `assets/img/work/canopy-cover-01.jpg`). Group multiple photos of the same project together in the `GALLERY` array with matching `label` text, and use the real `cat` values (`4x4`, `covers`, `upholstery`, `motorcycles`, `custom`) so filtering keeps working.
-
-## WhatsApp configuration
+## WhatsApp & contact configuration
 
 The WhatsApp number is set once, in `js/main.js`:
 
 ```js
-var WHATSAPP_NUMBER = "27829079166"; // 082 907 9166
+var WHATSAPP_NUMBER = "27660631757"; // 066 063 1757
 ```
 
-Every "Enquire on WhatsApp", "Get a Custom Quote", floating WhatsApp button, and the Contact page form all route through `FTWhatsApp()` / the `data-wa-message` attribute, which opens `https://wa.me/27829079166?text=...` with a prefilled message. Change the number in this one place to update it site-wide.
+WhatsApp and the phone number are the same number, per the brief. Every product card, the homepage configurator, the Contact page form, the floating WhatsApp button, and every `data-wa-message` button route through `FTWhatsApp()`, which opens `https://wa.me/27660631757?text=...` with a prefilled message.
 
-The Call number (`066 063 1757`) is set directly as `tel:+27660631757` links in each page's nav/footer/contact section.
+Business info (address, email) is set directly in each page's contact/footer markup and in the JSON-LD `LocalBusiness` schema in `index.html`/`contact.html`:
+
+- Address: 18B Liter Street, Industria, Middelburg, Mpumalanga, South Africa
+- Call / WhatsApp: 066 063 1757
+- Email: fullthrottle.gearandfitment@gmail.com
 
 ### Photo upload on the Contact form
 
-Browsers cannot programmatically attach a file to a `wa.me` link — WhatsApp's URL scheme only supports prefilled text. The "Upload a Photo" field on the Contact page lets a visitor pick a reference photo; the form then reminds them (on-screen and in the WhatsApp message) to attach that photo manually once the WhatsApp chat opens.
+Browsers cannot programmatically attach a file to a `wa.me` link — WhatsApp's URL scheme only supports prefilled text. The "Upload a Photo" field lets a visitor pick a reference photo; the form reminds them (on-screen and in the WhatsApp message) to attach it manually once the chat opens.
 
 ## Running locally
 
@@ -64,18 +52,29 @@ Then open `http://localhost:8000`.
 ## Structure
 
 ```
-index.html        Home (incl. cinematic intro animation)
-catalogue.html     Custom Catalogue (filterable, WhatsApp enquiry per item)
-services.html      Custom Services (4-step process, services grid, motorcycle upholstery feature)
-work.html          Our Work / Gallery (masonry + lightbox, before/after slider)
-about.html         About (brand story, Your Idea. Our Craft.)
-contact.html       Contact (form → WhatsApp, map, contact details)
-css/style.css      All styling, brand palette, animations
-js/main.js         Nav, WhatsApp logic, catalogue/gallery data + rendering, intro animation, forms
+index.html      Home (hero, disciplines, Built By Full Throttle rail, why-choose-us, configurator, materials, stats, footer)
+products.html   Products & Services (27-item catalogue, filterable: Vehicles/Overlanding/Canvas/Furniture/Covers/Bags/Custom)
+work.html       Our Work (gallery + lightbox, Before & After sliders)
+builds.html     Custom Builds (5-step manufacturing process timeline)
+about.html      The Workshop (craftsmanship story, no invented history/stats)
+contact.html    Contact & Quote (detailed form → WhatsApp, map, contact details)
+css/style.css   Full design system: palette, type, buttons, cards, nav, cursor, intro, view-transitions
+js/main.js      Nav, WhatsApp logic, product/gallery data + rendering, configurator, intro, cursor, counters, forms
 ```
+
+Product cards on `products.html` support a `?cat=` query param (e.g. `products.html?cat=vehicles`) so links from the homepage's discipline tiles and "Built By Full Throttle" rail land pre-filtered.
+
+## Design system notes
+
+- **Palette**: black/charcoal base with deep red, deep green and workshop yellow, each with a brighter "glow" variant used only in shadows/borders — flat industrial fills, glow reserved for accents and hover states.
+- **Type**: Anton (display headlines), Inter (body copy), JetBrains Mono (nav, buttons, tags, labels — the "technical readout" layer).
+- **Signature motif**: an animated stitch-line divider (dashed line + diamond end-marks) replaces the previous mountain-ridge motif as the site's recognisable detail.
+- **Custom cursor**: desktop only (`hover:hover` + `pointer:fine`), shows contextual labels (View / Explore) on `[data-cursor]` elements; never applied on touch devices.
+- **Page transitions**: uses the CSS View Transitions API (`@view-transition { navigation: auto; }`) with a seam-wipe clip-path animation. Supported in Chromium-based browsers; other browsers fall back to a normal page load with no error.
+- **Stat counters** on the homepage use real, countable facts (27 products, 5 disciplines, 7 catalogue categories, 100% made-to-measure) — no fabricated customer counts, years-in-business or review numbers anywhere on the site, per the brief.
 
 ## Notes on the brief
 
-- No window tinting is mentioned or offered anywhere on the site, per the brief.
-- No prices, customer counts, years-in-business or review counts are stated anywhere — every product uses "Custom Quote" per the brief's instruction not to invent statistics.
-- Brand palette follows the brief's final instruction: red, green, white and gold/yellow as the primary identity, with black/charcoal as a supporting background only.
+- No window tinting is mentioned or offered anywhere on the site.
+- No prices, customer counts, years-in-business, awards or certifications are stated anywhere — every product uses "Custom Quote" and copy avoids inventing company history.
+- The old `catalogue.html` and `services.html` pages have been removed and replaced by `products.html` and `builds.html`.
