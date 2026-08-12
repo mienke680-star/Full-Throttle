@@ -2,30 +2,26 @@
 
 A 6-page static website (Home, Custom Catalogue, Services, Our Work, About, Contact) built for Full Throttle Overlanding, a South African custom automotive, overlanding and material-work specialist. Plain HTML/CSS/JS — no build step, no framework, no backend.
 
-## ⚠️ Placeholder assets — action required before launch
+## ⚠️ Placeholder photography — action required before launch
 
-This build was generated from a written brief. **No logo file and no real project photographs were actually attached to the session that built it.** To respect the brief's explicit instruction not to redesign or recreate the logo, the site currently ships with clearly-marked stand-ins instead of a fabricated version of the real thing:
+This build was generated from a written brief. **The official logo has now been supplied and is wired in** (see "Logo" below) — but no real project photographs were attached to this session, so the site still ships with clearly-marked stock-photo stand-ins:
 
-- **Logo** — every page uses a plain text wordmark ("FULL THROTTLE OVERLANDING") inside a circular badge (see `.logo-badge` / `.nav-logo-mark` in `css/style.css`, used in each page's `<header class="site-nav">`, the mobile panel, the intro animation, and the footer). Swap this for the real logo file once you have it — see "Swapping in the real logo" below.
 - **Photography** — the hero image, catalogue thumbnails, gallery, before/after and about-page images all use hotlinked Unsplash stock photos of generic 4x4/upholstery subjects (not Full Throttle's actual work). These are placeholders only and should be replaced with real completed-project photos — see "Swapping in real photos" below.
 - **Intro animation vehicle** — the cinematic drive-by intro on the homepage uses a simple original SVG silhouette of a generic bakkie (not any specific real vehicle or brand), since no reference photography/video was supplied.
 
-Everything else — layout, copy, WhatsApp flows, animations, filters, forms — is fully built and functional against these placeholders.
+Everything else — layout, copy, WhatsApp flows, animations, filters, forms — is fully built and functional.
 
-### Swapping in the real logo
+### Logo
 
-1. Save the official logo file (PNG or SVG, transparent background ideally) into `assets/img/logo.png` (or `.svg`).
-2. In every HTML page, replace:
-   ```html
-   <span class="logo-badge">FT</span>
-   <span class="nav-logo-mark">FULL THROTTLE<span>OVERLANDING</span></span>
-   ```
-   with:
-   ```html
-   <img src="assets/img/logo.png" alt="Full Throttle Overlanding" style="height:44px;">
-   ```
-   in the nav (`header.site-nav`), the mobile panel isn't currently branded so no change needed there, and in `index.html`'s `#intro .intro-logo` block (replace the `.logo-badge` + `.nav-logo-mark` markup the same way, sized larger).
-3. Do not recolour, redraw, or crop the logo file — use it as supplied.
+The official logo (as supplied) lives at `assets/img/logo.jpg`, used unmodified — same file, no recolouring/cropping/redrawing — in:
+
+- The sticky nav on every page (`.nav-logo-img`)
+- The mobile menu panel (`.mobile-panel-logo`)
+- The footer brand block (`.footer-logo-img`)
+- The homepage cinematic intro animation (`.intro-logo-img`)
+- The browser-tab favicon (`<link rel="icon">` in every page's `<head>`)
+
+To swap in a different file later (e.g. a transparent PNG/SVG version), replace `assets/img/logo.jpg` and update the six `src="assets/img/logo.jpg"` references (plus the six favicon `href` attributes) accordingly.
 
 ### Swapping in real project photos
 
