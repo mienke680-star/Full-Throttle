@@ -176,18 +176,71 @@ p{ line-height:1.65; color:var(--white); opacity:0.78; margin:0; overflow-wrap:b
 .burger{ display:none; flex-direction:column; gap:6px; padding:8px; }
 .burger span{ width:26px; height:2px; background:var(--white); transition:transform .3s ease, opacity .3s ease; }
 
+/* Nav switches to the hamburger menu below 900px so common phone
+   landscape widths (e.g. 812-896px) get the mobile menu instead of a
+   cramped desktop nav. Kept separate from the 760px layout breakpoint
+   below so grids/masonry/etc. aren't affected by this wider threshold. */
+@media (max-width:900px){
+  .topnav .nav-links{ display:none; }
+  .nav-call{ display:none; }
+  .burger{ display:flex; }
+}
+
 .mobile-menu{
   position:fixed; inset:0; z-index:950; background:var(--black);
-  display:flex; flex-direction:column; padding:110px var(--edge) 40px;
+  display:flex; flex-direction:column; padding:100px var(--edge) 32px;
   transform:translateY(-100%); transition:transform .5s var(--ease); overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 .mobile-menu.open{ transform:translateY(0); }
-.mobile-menu-close{ position:absolute; top:26px; right:var(--edge); font-size:2rem; color:var(--white); }
-.mobile-menu .nav-links{ flex-direction:column; align-items:flex-start; gap:24px; font-family:var(--font-display); text-transform:uppercase; font-size:1.6rem; letter-spacing:0.01em; }
+.mobile-menu-close{
+  position:absolute; top:22px; right:var(--edge); font-size:2rem; line-height:1; color:var(--white);
+  width:40px; height:40px; display:flex; align-items:center; justify-content:center; flex:none;
+}
+.mobile-menu-logo{
+  height:42px; width:auto; max-width:200px; object-fit:contain;
+  align-self:flex-start; flex:none; margin-bottom:28px;
+}
+
+.mobile-menu .nav-links{
+  flex-direction:column; align-items:flex-start; gap:4px;
+  font-family:var(--font-display); text-transform:uppercase; font-size:1.5rem; letter-spacing:0.01em;
+}
+.mobile-menu .nav-links a{
+  position:relative; display:block; width:100%; padding:12px 0 12px 18px;
+  opacity:0; transform:translateY(14px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease), color .2s ease, padding-left .2s ease;
+}
 .mobile-menu .nav-links a::before{ display:none; }
-.mobile-menu-logo{ height:44px; margin-bottom:8px; }
-.mobile-menu-actions{ margin-top:auto; display:flex; flex-direction:column; gap:14px; }
+.mobile-menu .nav-links a::after{
+  content:""; position:absolute; left:0; top:50%; width:3px; height:0; transform:translateY(-50%);
+  background:var(--red-bright); box-shadow:0 0 10px var(--red-glow); transition:height .22s ease;
+}
+.mobile-menu .nav-links a:hover, .mobile-menu .nav-links a:active, .mobile-menu .nav-links a.active{
+  color:var(--yellow-bright); padding-left:26px;
+}
+.mobile-menu .nav-links a:hover::after, .mobile-menu .nav-links a:active::after, .mobile-menu .nav-links a.active::after{ height:60%; }
+.mobile-menu.open .nav-links a{ opacity:1; transform:translateY(0); }
+.mobile-menu.open .nav-links a:nth-child(1){ transition-delay:.10s; }
+.mobile-menu.open .nav-links a:nth-child(2){ transition-delay:.15s; }
+.mobile-menu.open .nav-links a:nth-child(3){ transition-delay:.20s; }
+.mobile-menu.open .nav-links a:nth-child(4){ transition-delay:.25s; }
+.mobile-menu.open .nav-links a:nth-child(5){ transition-delay:.30s; }
+.mobile-menu.open .nav-links a:nth-child(6){ transition-delay:.35s; }
+
+.mobile-menu-actions{ margin-top:auto; padding-top:28px; display:flex; flex-direction:column; gap:12px; flex:none; }
 body.menu-open{ overflow:hidden; }
+
+@media (max-height:560px){
+  .mobile-menu{ padding-top:76px; padding-bottom:20px; }
+  .mobile-menu-logo{ height:34px; margin-bottom:16px; }
+  .mobile-menu .nav-links{ font-size:1.2rem; }
+  .mobile-menu .nav-links a{ padding:8px 0 8px 18px; }
+  .mobile-menu-actions{ padding-top:16px; gap:9px; }
+}
+@media (max-width:340px){
+  .mobile-menu .nav-links{ font-size:1.3rem; }
+}
 
 /* =========================================================
    HERO
@@ -545,9 +598,6 @@ body.intro-active{ overflow:hidden; height:100vh; }
   .timeline-track{ left:23px; }
 }
 @media (max-width:760px){
-  .nav-links{ display:none; }
-  .nav-call{ display:none; }
-  .burger{ display:flex; }
   .grid-6,.grid-3,.grid-2{ grid-template-columns:1fr; }
   .masonry{ column-count:1; }
   .material-grid{ grid-template-columns:repeat(3,1fr); }
