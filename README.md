@@ -1,6 +1,6 @@
-# Full Throttle Overlanding — Website
+# Full Throttle Upholstery & Overlanding Gear — Website
 
-A 6-page static website (Home, Custom Catalogue, Services, Our Work, About, Contact) built for Full Throttle Overlanding, a South African custom automotive, overlanding and material-work specialist. Plain HTML/CSS/JS — no build step, no framework, no backend.
+A 6-page static website (Home, Custom Catalogue, Services, Our Work, About, Contact) built for Full Throttle Upholstery & Overlanding Gear, a South African custom automotive, overlanding and material-work specialist. Plain HTML/CSS/JS — no build step, no framework, no backend.
 
 ## ⚠️ Placeholder photography — action required before launch
 

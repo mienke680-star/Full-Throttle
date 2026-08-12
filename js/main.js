@@ -1,5 +1,5 @@
 /* =========================================================
-   FULL THROTTLE OVERLANDING — SITE SCRIPT
+   FULL THROTTLE UPHOLSTERY & OVERLANDING GEAR — SITE SCRIPT
    ========================================================= */
 (function(){
   "use strict";
@@ -129,96 +129,206 @@
 
   /* ---------- Catalogue data + rendering ---------- */
   var CATALOGUE = [
+    // Vehicle Upholstery
     {
-      name:"Full Vehicle Cover — 4x4",
-      cat:"vehicle-covers",
-      tags:["Vehicle Covers","Overlanding"],
-      desc:"Heavy-duty, made-to-measure vehicle cover cut to your exact bakkie or 4x4, built to handle sun, dust and storage.",
-      img:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop"
-    },
-    {
-      name:"Canopy & Roof-Rack Cover",
-      cat:"vehicle-covers",
-      tags:["Vehicle Covers"],
-      desc:"Custom-fitted canvas cover built around your canopy, roof rack and mounted equipment.",
-      img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop"
-    },
-    {
-      name:"Bakkie Bucket Seat Covers",
-      cat:"seat-covers",
-      tags:["Seat Covers","Upholstery"],
-      desc:"Durable, custom-cut seat covers finished to protect factory upholstery on daily-driven or off-road vehicles.",
+      name:"Vehicle Seat Re-Upholstery",
+      cat:"vehicle-upholstery",
+      tags:["Vehicle Upholstery"],
+      desc:"Complete restoration and re-upholstery of worn vehicle seats in automotive-grade vinyl or leatherette, with fresh foam and heavy-duty stitching.",
       img:"https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Full Interior Re-Trim",
-      cat:"upholstery",
-      tags:["Upholstery"],
-      desc:"Complete interior upholstery re-trim, built around the vehicle and finished to a professional workshop standard.",
+      name:"Custom Vehicle Seat Designs",
+      cat:"vehicle-upholstery",
+      tags:["Vehicle Upholstery"],
+      desc:"Custom-designed vehicle seating with personalised patterns, piping and contrast stitching, made in automotive vinyl or synthetic leather.",
       img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Custom Motorcycle Seat",
-      cat:"motorcycle",
-      tags:["Motorcycle","Upholstery"],
-      desc:"Bespoke motorcycle seat upholstery shaped and stitched around the bike and the rider.",
+      name:"Motorcycle & ATV Seat Upholstery",
+      cat:"vehicle-upholstery",
+      tags:["Vehicle Upholstery","Motorcycle"],
+      desc:"Custom motorcycle, quad bike and ATV seat restoration and redesign in marine-grade vinyl with contrast stitching and embroidery.",
       img:"https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Adventure Tourer Seat Rebuild",
-      cat:"motorcycle",
-      tags:["Motorcycle"],
-      desc:"Full foam and cover rebuild for long-distance adventure riders who need a seat built for real kilometres.",
+      name:"Custom Vehicle Boot / Cargo Liner",
+      cat:"vehicle-upholstery",
+      tags:["Vehicle Upholstery"],
+      desc:"Protective custom liner fitted inside your vehicle's boot or cargo area, in quilted automotive vinyl with a padded, foam-backed layer.",
       img:"https://images.unsplash.com/photo-1591637333472-7d2ff5c9c395?q=80&w=1200&auto=format&fit=crop"
     },
+    // Overlanding & Camping Gear
     {
-      name:"Spare Wheel Cover",
-      cat:"equipment-covers",
-      tags:["Equipment Covers"],
-      desc:"Rugged, custom-fitted spare wheel cover finished in heavy-duty material, made to your rim and tyre size.",
-      img:"https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1200&auto=format&fit=crop"
-    },
-    {
-      name:"Fridge / Equipment Bag",
-      cat:"equipment-covers",
-      tags:["Equipment Covers","Overlanding"],
-      desc:"Custom protective covers and bags for camp fridges, recovery gear and overlanding equipment.",
+      name:"Custom Roof-Rack Gear Covers",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom protective covers made for equipment carried on your roof rack, in heavy-duty waterproof canvas with reinforced webbing and buckles.",
       img:"https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Rooftop Tent Travel Cover",
-      cat:"overlanding",
-      tags:["Overlanding","Vehicle Covers"],
-      desc:"Weatherproof, custom-measured travel cover built to protect a rooftop tent on and off the road.",
+      name:"Rooftop Tent Protective Covers",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom covers designed to protect your rooftop tent during transport and storage, in UV-resistant PVC-coated canvas with heavy-duty zips.",
       img:"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Canvas Storage Roll",
-      cat:"overlanding",
-      tags:["Overlanding","Custom Projects"],
-      desc:"Heavy canvas storage roll made to order for recovery gear, tools and camp equipment.",
+      name:"Awning Protective Covers",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Protective covers for vehicle-mounted camping and overlanding awnings, in waterproof, UV-resistant canvas with reinforced webbing.",
+      img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Overlanding Gear Bags",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom bags designed to store and transport camping and overlanding equipment, in ripstop or heavy-duty canvas with reinforced handles.",
       img:"https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Trailer & Equipment Cover",
-      cat:"custom-projects",
-      tags:["Custom Projects"],
-      desc:"A one-off cover project built to a customer's specific trailer dimensions and use case.",
+      name:"Cylindrical Camping / Overlanding Storage Bag",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom round gear bag for storing and carrying camping equipment, in heavy-duty ripstop canvas with a reinforced carry handle.",
+      img:"https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Braai / Cooking Plate Carry Bag",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Protective carry bag made for a round braai plate, cooking plate or similar equipment, in heavy-duty canvas with padded, protective lining.",
+      img:"https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Toiletry / Utility Organiser Bag",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Multi-compartment organiser designed for camping, travel and overlanding, in heavy-duty canvas with clear PVC and mesh storage sections.",
+      img:"https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Camper / Caravan Storage Pockets",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom zippered storage compartments fitted into caravan, trailer or camper cabinetry, in heavy-duty canvas with reinforced edging.",
+      img:"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Camper Cabinet Zipper Inserts",
+      cat:"overlanding-camping-gear",
+      tags:["Overlanding & Camping Gear"],
+      desc:"Custom soft-storage sections made to fit directly into camper or caravan cupboards, in outdoor-grade canvas with heavy-duty zippers.",
+      img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop"
+    },
+    // Canvas Work
+    {
+      name:"Custom Bakkie / Load-Bin Canvas Canopy",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"Custom-made soft canopy fitted over your bakkie's load bin, built in heavy-duty waterproof canvas with reinforced seams and fastening straps.",
+      img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Camping / Overlanding Tent Enclosures",
+      cat:"canvas-work",
+      tags:["Canvas Work","Overlanding & Camping Gear"],
+      desc:"Custom canvas rooms and tent enclosures for camping and overlanding setups, in waterproof canvas with mesh panels and heavy-duty zips.",
+      img:"https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Patio / Lapa Canvas Enclosures",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"Custom outdoor canvas walls that enclose patios, entertainment areas and lapas, with clear PVC windows and reinforced eyelets.",
+      img:"https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Outdoor Appliance Covers",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"Made-to-measure protective covers for outdoor appliances and equipment, in waterproof PVC-coated canvas with reinforced seams.",
+      img:"https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Outdoor Equipment Covers",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"Large protective covers manufactured for equipment, cabinets and storage units, in heavy-duty waterproof canvas with tie-down straps.",
       img:"https://images.unsplash.com/photo-1602868043243-cbe8811954ec?q=80&w=1200&auto=format&fit=crop"
     },
     {
-      name:"Console & Interior Panel Trim",
-      cat:"upholstery",
-      tags:["Upholstery","Custom Projects"],
-      desc:"Custom-trimmed interior panels finished to match a full vehicle re-upholstery project.",
+      name:"Custom Double Outdoor Storage / Equipment Covers",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"Made-to-measure covers for larger or multiple outdoor units positioned side by side, in heavy-duty weatherproof canvas.",
+      img:"https://images.unsplash.com/photo-1602868043243-cbe8811954ec?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Protective Canvas Covers",
+      cat:"canvas-work",
+      tags:["Canvas Work"],
+      desc:"General-purpose covers manufactured to the exact dimensions of your fridge, generator, tools or equipment, in heavy-duty canvas and PVC-coated fabric.",
+      img:"https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1200&auto=format&fit=crop"
+    },
+    // Furniture Upholstery
+    {
+      name:"Custom Chair Re-Upholstery",
+      cat:"furniture-upholstery",
+      tags:["Furniture Upholstery"],
+      desc:"Restoration and modernisation of dining chairs and other furniture in upholstery vinyl or leatherette, with fresh foam and decorative stitching.",
+      img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Bar Stool Upholstery",
+      cat:"furniture-upholstery",
+      tags:["Furniture Upholstery"],
+      desc:"Custom upholstered seats for commercial or private bar stools, built in heavy-duty vinyl with reinforced seat bases and optional branding.",
+      img:"https://images.unsplash.com/photo-1541443131876-44b03de101c5?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Furniture Re-Upholstery",
+      cat:"furniture-upholstery",
+      tags:["Furniture Upholstery"],
+      desc:"Restoration of benches, backrests, chairs and other upholstered furniture in vinyl, leatherette or fabric with fresh foam and piping.",
       img:"https://images.unsplash.com/photo-1605559911160-a3d95d213904?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Custom Upholstered Furniture Panels",
+      cat:"furniture-upholstery",
+      tags:["Furniture Upholstery"],
+      desc:"Custom padded panels added to wooden furniture, benches and backrests in high-density foam and upholstery vinyl or leatherette.",
+      img:"https://images.unsplash.com/photo-1605559911160-a3d95d213904?q=80&w=1200&auto=format&fit=crop"
+    },
+    // Custom Manufacturing
+    {
+      name:"Custom Embroidery & Branding",
+      cat:"custom-manufacturing",
+      tags:["Custom Manufacturing"],
+      desc:"Personalised branding added to upholstery, bags, stools and overlanding products using machine embroidery, patches and contrast stitching.",
+      img:"https://images.unsplash.com/photo-1605559911160-a3d95d213904?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Industrial Sewing & Stitching",
+      cat:"custom-manufacturing",
+      tags:["Custom Manufacturing"],
+      desc:"Heavy-duty industrial sewing for custom canvas, upholstery and overlanding products, plus reinforcement and repair stitching.",
+      img:"https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop"
+    },
+    {
+      name:"Upholstery Repairs & Restoration",
+      cat:"custom-manufacturing",
+      tags:["Custom Manufacturing"],
+      desc:"Repairing torn, damaged or worn upholstery on vehicle seats, motorcycle seats, furniture and commercial seating instead of full replacement.",
+      img:"https://images.unsplash.com/photo-1591637333472-7d2ff5c9c395?q=80&w=1200&auto=format&fit=crop"
     }
   ];
 
   var catalogueGrid = document.getElementById("catalogueGrid");
   if(catalogueGrid){
     function waMessage(item){
-      return "Hi Full Throttle Overlanding! I'm interested in this item/project from your website: " + item.name +
+      return "Hi Full Throttle Upholstery & Overlanding Gear! I'm interested in this item/project from your website: " + item.name +
         ".\n\nVehicle:\nMake/Model:\nYear:\nWhat I need:\n\nCould you please give me more information and a custom quote?";
     }
     function renderCatalogue(filter){
@@ -363,7 +473,7 @@
       var data = new FormData(contactForm);
       var hasPhoto = fileInput && fileInput.files && fileInput.files[0];
       var message =
-        "Hi Full Throttle Overlanding! I'd like to request a custom quote.\n\n" +
+        "Hi Full Throttle Upholstery & Overlanding Gear! I'd like to request a custom quote.\n\n" +
         "Name: " + (data.get("name") || "-") + "\n" +
         "Phone: " + (data.get("phone") || "-") + "\n" +
         "Email: " + (data.get("email") || "-") + "\n" +
